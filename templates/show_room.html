@@ -2,21 +2,20 @@
 
 {% block content %}
 
-<h1> {{ room.name }} </h1>
+<div class="container">
+  <h1> {{ room.name }} </h1>
 
-<pre>
-  {{ room.description }}
-</pre>
+  <pre>
+    {{ room.description }}
+  </pre>
 
-{% if room.name in ["death", "The End"] %}
-<p><a href="/">Play Again?</a></p>
-{% else %}
-<p>
-  <form action="/game" method="POST">
-    - <input type="text" name="action"> <input type="submit">
-  </form>
-</p>
-
-{% endif %}
+  {% if room.name in ["Death", "The End"] %}
+    <p><a class="btn" href="/">Play Again?</a></p>
+  {% else %}
+    <form action="/game" method="POST">
+      <input class="input" placeholder="Type your action here..." type="text" name="action"> <input class="btn" type="submit">
+    </form>
+  {% endif %}
+</div>
 
 {% endblock %}
