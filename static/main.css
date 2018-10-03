@@ -32,10 +32,21 @@ body {
   font-family: 'Cutive Mono', monospace;
 }
 
-.nav-list {
+.right {
   float: right;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.left {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+h3 {
+  color: turquoise;
+  font-family: 'Press Start 2P', cursive;
 }
 
 a {

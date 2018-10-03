@@ -7,7 +7,10 @@
 </head>
 <body>
   <nav>
-    <div class="nav-list">
+    <div class="left">
+      <h3>Your highscore: {{ session['current_user_highscore'] }}</h3>
+    </div>
+    <div class="right">
     {% if not session['logged_in'] %}
       <a href="/login">Log In / Register</a>
     {% else %}
