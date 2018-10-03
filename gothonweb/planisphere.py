@@ -2,11 +2,11 @@ from sys import exit
 
 class Room(object):
 
-    def __init__(self, name, description):
+    def __init__(self, name, description, lvl):
         self.name = name
         self.description = description
         self.paths = {} # Creates an empty paths dict.
-    
+        self.lvl = lvl
     def go(self, direction):
         return self.paths.get(direction, None)
         # See's if the value of direction is in the paths dict.
@@ -26,7 +26,7 @@ You're running down the central corridor to the Weapons Armory when a
 Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown
 costume flowing around his hate filled body. He's blocking the door to
 the Armory and about to pull a weapon to blast you.
-""")
+""", 1)
 
 laser_weapon_armory = Room("Laser Weapon Armory",
 """
@@ -43,7 +43,7 @@ stand up and run to the far side of the room and find the neutron bomb
 in its container. There's a keypad lock on the box and you need the
 code to get the bomb out. If you get the code wrong 10 times then the
 lock closes forever and you can't get the bomb. The code is 3 digits.
-""")
+""", 2)
 
 the_bridge = Room("The Bridge",
 """
@@ -56,7 +56,7 @@ and surprise 5 Gothons who are trying to take control of the ship. Each
 of them has an even uglier clown costume than the last. They haven't
 pulled their weapons out yet, as they see the active bomb under your arm
 and don't want to set it off.
-""")
+""", 3)
 
 escape_pod = Room("Escape Pod",
 """
@@ -72,7 +72,7 @@ pod before the whole ship explodes. It seems like hardly any Gothons
 are on the ship, so your run is clear of interference. You get to the
 chamber with the escape pods, and now need to pick one to take. Some of
 them could be damaged but y
-""")
+""", 4)
 
 the_end_winner = Room("The End",
 """
@@ -80,21 +80,21 @@ You jump into pod 2 and hit the eject button. The pod easily slides out
 into space heading to the planet below. As it flies to the planet, you
 look back and see your ship implode then explode like a bright star,
 taking out the Gothon ship at the same time. You won!
-""")
+""", 5)
 
 the_end_loser = Room("The End",
 """
 You jump into a random pod and hit the eject button. The pod escapes
 out into the void of space, then implodes as the hull ruptures, crushing
 your body into jam jelly.
-""")
+""", 0)
 
 escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
 }) # Adding paths to the escape_pod paths dict
 
-generic_death = Room("Death", "You died.")
+generic_death = Room("Death", "You died.", 0)
 
 the_bridge.add_paths({
     'throw the bomb': generic_death,

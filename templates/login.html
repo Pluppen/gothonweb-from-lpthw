@@ -3,32 +3,31 @@
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
 {% else %}
- 
- 
+
+
 <form action="/login" method="POST">
-	<div class="login">
-		<div class="login-screen">
+	<div class="container">
+		<div class="screen">
 			<div class="app-title">
 				<h1>Login</h1>
 			</div>
- 
-			<div class="login-form">
+			<a href="/signup">Do not have an account? Sign up now.</a>
+			<div class="form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" name="username">
-				<label class="login-field-icon fui-user" for="login-name"></label>
+					<input type="text" class="field" value="" placeholder="username" name="username">
+					<label class="field-icon fui-user" for="name"></label>
 				</div>
- 
+
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" name="password">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
+					<input type="password" class="field" value="" placeholder="password" name="password">
+					<label class="field-icon fui-lock" for="pass"></label>
 				</div>
- 
-                <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
-			    <br>
+				<input type="submit" value="Log in" class="btn btn-primary btn-large btn-block">
+				<br>
 			</div>
 		</div>
 	</div>
 </form>
- 
+
 {% endif %}
 {% endblock %}
