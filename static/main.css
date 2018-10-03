@@ -1,0 +1,73 @@
+/*
+font-family: 'Press Start 2P', cursive;
+font-family: 'Cutive Mono', monospace;
+*/
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Press+Start+2P');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  color: #fff;
+  background: url('background-img.jpg')
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  clear: both;
+}
+
+.container h1 {
+  color: turquoise;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.container pre {
+  font-family: 'Cutive Mono', monospace;
+}
+
+.nav-list {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Cutive Mono', monospace;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: #bbb;
+}
+
+.input {
+  height: 40px;
+  width: 500px;
+  font-size: 16px;
+  font-family: 'Cutive Mono', monospace;
+  background-color: #000;
+  color: #fff;
+  padding-left: 10px;
+  outline: none;
+  border: 2px solid teal;  
+}
+
+.btn {
+  text-decoration: none;
+  background-color: teal;
+  padding: 5px;
+  height: 40px;
+  color: #fff;
+  font-family: 'Cutive Mono', monospace;
+  border: 0px;
+  cursor: pointer;
+}
