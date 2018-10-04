@@ -84,10 +84,10 @@ def login():
         else:
             return index()
     else:
-        POST_USERNAME = str(request.form['username'])
-        POST_PASSWORD = str(request.form['password'])
+        post_username = str(request.form['username'])
+        post_password = str(request.form['password'])
         
-        login_mechanics(POST_USERNAME, POST_PASSWORD)
+        login_mechanics(post_username, post_password)
         return index()
 
 @app.route('/signup', methods=['POST', 'GET'])
@@ -98,18 +98,18 @@ def signup():
         else:
             return index()
     else:
-        POST_USERNAME = str(request.form['username'])
-        POST_PASSWORD = str(request.form['password'])
+        post_username = str(request.form['username'])
+        post_password = str(request.form['password'])
 
         Session = sessionmaker(bind=engine)
         s = Session()
 
-        user = User(POST_USERNAME, POST_PASSWORD)
+        user = User(post_username, post_password)
         s.add(user)
 
         s.commit()
 
-        login_mechanics(POST_USERNAME, POST_PASSWORD)
+        login_mechanics(post_username, post_password)
             
     return index()
 
