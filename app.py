@@ -22,6 +22,21 @@ def increase_highscore(target_usr):
 
     return result.highscore
 
+def login_mechanics(target_usr, target_psswd):
+    
+    Session = sessionmaker(bind=engine)
+    s = Session()
+    query = s.query(User).filter(User.username.in_([target_usr]), User.password.in_([target_psswd]) )
+    result = query.first()
+    
+    if result:
+        session['current_user'] = result.username
+        session['current_user_highscore'] = result.highscore
+        session['logged_in'] = True
+    else:
+        print('wrong password!')
+
+
 @app.route("/")
 def index():
     if not session.get('logged_in'):
@@ -41,15 +56,16 @@ def game():
         if request.method == "GET":
             if room_name:
                 room = planisphere.load_room(room_name)
+                lvl = room.lvl
+                
+                if lvl > session['current_user_highscore']:
+                    session['current_user_highscore'] = increase_highscore(current_user)                    
+                
                 return render_template("show_room.html", room=room, session=session)
         else:
             action = request.form.get('action')
             if room_name and action:
                 room = planisphere.load_room(room_name)
-                lvl = room.lvl
-                
-                if lvl > session['current_user_highscore']:
-                    session['current_user_highscore'] = increase_highscore(current_user)
 
                 next_room = room.go(action)
                 if not next_room:
@@ -71,17 +87,7 @@ def login():
         POST_USERNAME = str(request.form['username'])
         POST_PASSWORD = str(request.form['password'])
         
-        Session = sessionmaker(bind=engine)
-        s = Session()
-        query = s.query(User).filter(User.username.in_([POST_USERNAME]), User.password.in_([POST_PASSWORD]) )
-        result = query.first()
-        if result:
-            session['current_user'] = result.username
-            session['current_user_highscore'] = result.highscore
-            session['logged_in'] = True
-        else:
-            flash('wrong password!')
-        
+        login_mechanics(POST_USERNAME, POST_PASSWORD)
         return index()
 
 @app.route('/signup', methods=['POST', 'GET'])
@@ -102,6 +108,8 @@ def signup():
         s.add(user)
 
         s.commit()
+
+        login_mechanics(POST_USERNAME, POST_PASSWORD)
             
     return index()
 
