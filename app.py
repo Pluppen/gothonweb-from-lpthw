@@ -66,10 +66,11 @@ def game():
             action = request.form.get('action')
             if room_name and action:
                 room = planisphere.load_room(room_name)
-
                 next_room = room.go(action)
-                if not next_room:
-                    session['room_name'] = planisphere.name_room(room)
+
+                if next_room == None:
+                    death = planisphere.load_room('generic_death')
+                    session['room_name'] = planisphere.name_room(death)
                 else:
                     session['room_name'] = planisphere.name_room(next_room)
 
