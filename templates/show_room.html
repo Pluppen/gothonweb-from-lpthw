@@ -18,4 +18,17 @@
   {% endif %}
 </div>
 
+<label for="showblock">Show Help</label>
+<input type="checkbox" id="showblock" />
+
+<div id="help">
+  <h3> Help list </h3>
+  <p>Availabe commands are</p>
+  <ul>
+    {% for command in room.help: %}
+      <li>{{command}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
 {% endblock %}

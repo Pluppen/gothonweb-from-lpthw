@@ -7,6 +7,11 @@ class Room(object):
         self.description = description
         self.paths = {} # Creates an empty paths dict.
         self.lvl = lvl
+        self.help = []
+
+    def add_help(self, command):
+        self.help.append(command)
+
     def go(self, direction):
         return self.paths.get(direction, None)
         # See's if the value of direction is in the paths dict.
@@ -94,6 +99,8 @@ escape_pod.add_paths({
     '*': the_end_loser
 }) # Adding paths to the escape_pod paths dict
 
+escape_pod.add_help('A number between 0-9 ex: 7')
+
 generic_death = Room("Death", "You died.", 0)
 
 the_bridge.add_paths({
@@ -101,16 +108,25 @@ the_bridge.add_paths({
     'slowly place the bomb': escape_pod
 }) 
 
+the_bridge.add_help('throw the bomb')
+the_bridge.add_help('slowly place the bomb')
+
 laser_weapon_armory.add_paths({
     '0132': the_bridge,
     '*': generic_death
 })
+
+laser_weapon_armory.add_help('A four digit code ex: 1234')
 
 central_corridor.add_paths({
     'shoot!': generic_death,
     'dodge!': generic_death,
     'tell a joke': laser_weapon_armory
 })
+
+central_corridor.add_help('shoot!')
+central_corridor.add_help('dodge!')
+central_corridor.add_help('tell a joke')
 
 START = 'central_corridor'
 

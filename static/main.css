@@ -81,4 +81,60 @@ a:hover {
   font-family: 'Cutive Mono', monospace;
   border: 0px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: turquoise;
+}
+
+/* Help System Related */
+label {
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: turquoise;
+  transition: 0.2s;
+  font-family: 'Cutive Mono', monospace;
+}
+
+label:hover {
+  color: teal;
+}
+
+#showblock {
+  display: none;
+  margin: 0 auto;
+}
+
+#help {
+  text-align: center;
+  width: 500px;
+  height: 0;
+  transition: height 0.3s linear;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#help p {
+  background-color: #000;
+}
+
+#help ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#help li {
+  background-color: #000;
+}
+
+#showblock:checked + #help {
+  height: 200px;
 }
