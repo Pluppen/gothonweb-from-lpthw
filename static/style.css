@@ -1,3 +1,10 @@
+/*
+font-family: 'Press Start 2P', cursive;
+font-family: 'Cutive Mono', monospace;
+*/
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Press+Start+2P');
+
+
 * {
 box-sizing: border-box;
 }
@@ -10,24 +17,34 @@ body {
     font-family: Arial;
     background-color: #3498DB;
     padding: 50px;
+    background: url('background-img.jpg')
 }
+
 .container {
     margin: 20px auto;
-    width: 300px;
+    width: 400px;
 }
 .screen {
     background-color: #FFF;
     padding: 20px;
-    border-radius: 5px
+    border-radius: 5px;
+    text-align: center;
+}
+
+.screen a {
+    text-decoration: none;
+    color: teal;
 }
     
 .app-title {
     text-align: center;
-    color: #777;
+    color: turquoise;
+    font-family: 'Press Start 2P', cursive;
 }
     
 .form {
     text-align: center;
+    font-family: 'Cutive Mono', monospace;
 }
 .control-group {
     margin-bottom: 10px;

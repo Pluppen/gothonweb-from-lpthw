@@ -12,7 +12,7 @@ body {
   top: 0;
   background-color: #000;
   color: #fff;
-  background: url('background-img.jpg')
+  background: url('background-img.jpg');
 }
 
 .container {
@@ -64,7 +64,6 @@ a:hover {
   height: 40px;
   width: 500px;
   font-size: 16px;
-  font-family: 'Cutive Mono', monospace;
   background-color: #000;
   color: #fff;
   padding-left: 10px;
@@ -95,7 +94,7 @@ label {
   margin: 0 auto;
   width: 100px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: -5px;
   padding: 10px 20px;
   border-radius: 4px;
   color: turquoise;
